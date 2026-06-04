@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sağlıklı Yaşam Merkezi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#27ae60;
+    --secondary:#2ecc71;
+    --bg:#f4fff6;
+    --card:#ffffff;
+    --text:#333;
+    --shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.dark{
+    --bg:#121212;
+    --card:#1f1f1f;
+    --text:#f5f5f5;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    transition:.4s;
+}
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(39,174,96,.95);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:700;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.theme-btn{
+    background:white;
+    color:#27ae60;
+    border:none;
+    padding:8px 15px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.hero{
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:60px;
+}
+
+.hero p{
+    margin:20px 0;
+    font-size:20px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    background:#2ecc71;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:36px;
+    color:var(--primary);
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:var(--card);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:var(--primary);
+}
+
+.bmi-box{
+    max-width:500px;
+    margin:auto;
+    background:var(--card);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+}
+
+.bmi-box input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.bmi-box button{
+    width:100%;
+    padding:12px;
+    background:var(--primary);
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.result{
+    margin-top:20px;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+}
+
+footer{
+    background:#1c7c45;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    nav ul{
+        gap:10px;
+        font-size:14px;
+    }
+
+    .navbar{
+        flex-wrap:wrap;
+        gap:10px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <div class="logo">💚 Sağlıklı Yaşam</div>
+
+        <nav>
+            <ul>
+                <li><a href="#anasayfa">Ana Sayfa</a></li>
+                <li><a href="#beslenme">Beslenme</a></li>
+                <li><a href="#egzersiz">Egzersiz</a></li>
+                <li><a href="#bmi">BMI</a></li>
+            </ul>
+        </nav>
+
+        <button class="theme-btn" onclick="temaDegistir()">
+            🌙 Tema
+        </button>
+    </div>
+</header>
+
+<section class="hero" id="anasayfa">
+    <div>
+        <h1>Sağlıklı Yaşam Merkezi</h1>
+        <p>Sağlıklı beslen, aktif kal, kaliteli yaşa.</p>
+        <a href="#beslenme" class="btn">Başla</a>
+    </div>
+</section>
+
+<section id="beslenme">
+    <h2 class="section-title">🥗 Sağlıklı Beslenme</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Doğal Besinler</h3>
+            <p>Sebze, meyve ve tam tahıllar bağışıklık sistemini güçlendirir.</p>
+        </div>
+
+        <div class="card">
+            <h3>Su Tüketimi</h3>
+            <p>Günde ortalama 2-2.5 litre su içmek vücut fonksiyonlarını destekler.</p>
+        </div>
+
+        <div class="card">
+            <h3>Dengeli Öğün</h3>
+            <p>Protein, karbonhidrat ve yağları dengeli tüketmek önemlidir.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="egzersiz">
+    <h2 class="section-title">🏃 Egzersiz Önerileri</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Yürüyüş</h3>
+            <p>Her gün 30 dakika yürüyüş yaparak kalp sağlığınızı koruyun.</p>
+        </div>
+
+        <div class="card">
+            <h3>Koşu</h3>
+            <p>Kondisyonunuzu ve dayanıklılığınızı artırır.</p>
+        </div>
+
+        <div class="card">
+            <h3>Yoga</h3>
+            <p>Hem fiziksel hem zihinsel rahatlama sağlar.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="bmi">
+    <h2 class="section-title">📊 BMI Hesaplayıcı</h2>
+
+    <div class="bmi-box">
+
+        <input type="number" id="boy" placeholder="Boy (cm)">
+        <input type="number" id="kilo" placeholder="Kilo (kg)">
+
+        <button onclick="hesaplaBMI()">
+            BMI Hesapla
+        </button>
+
+        <div class="result" id="sonuc"></div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Sağlıklı Yaşam Merkezi | Sağlığınız Önceliğimizdir 💚</p>
+</footer>
+
+<script>
+function temaDegistir(){
+    document.body.classList.toggle("dark");
+}
+
+function hesaplaBMI(){
+
+    let boy = document.getElementById("boy").value / 100;
+    let kilo = document.getElementById("kilo").value;
+
+    if(!boy || !kilo){
+        alert("Lütfen tüm alanları doldurun.");
+        return;
+    }
+
+    let bmi = kilo / (boy * boy);
+
+    let durum = "";
+
+    if(bmi < 18.5)
+        durum = "Zayıf";
+    else if(bmi < 25)
+        durum = "Normal";
+    else if(bmi < 30)
+        durum = "Fazla Kilolu";
+    else
+        durum = "Obez";
+
+    document.getElementById("sonuc").innerHTML =
+        "BMI: " + bmi.toFixed(1) + " | Durum: " + durum;
+}
+</script>
+
+</body>
+</html>
